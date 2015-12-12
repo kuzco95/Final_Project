@@ -17,6 +17,13 @@ public class Super_Class {
 	protected JFrame mapImage;
 	protected ImageIcon mapIcon;
 	protected JLabel map;
+	protected JFrame madeIt;
+	protected JLabel dropOrDitch;
+	
+	protected Container whatToDo;
+	protected JPanel whatNow;
+	
+	
 	public void pick_Room(String[] args){
 		
 	final JFrame decide;
@@ -55,6 +62,12 @@ public class Super_Class {
 	
 	JButton Hall1 = new JButton("Hallway");
 	Hall1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+	
+	JButton newRoom = new JButton("New Room");
+	newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+	
+	JButton jumpDown = new JButton("Drop In");
+	jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
 	}//end Super_Class method
 

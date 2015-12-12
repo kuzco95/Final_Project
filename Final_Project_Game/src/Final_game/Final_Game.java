@@ -28,8 +28,8 @@ public class Final_Game {
 	
 	protected JFrame asylumRevelation = new JFrame("Enlightenment");
 	protected JLabel RevelationContent = new JLabel("<html> <font color='silver'> After looking out "
-			+ "the small window in the door, you soon realize that you are, in fact, in a Nazi "
-			+ "facility. Try and attract the guard's attention and get out quickly. </font><html>");
+			+ "the small window in the door, you soon realize that you are, in fact, locked inside "
+			+ "a Nazi facility. Attract the guard's attention and get out quickly. </font><html>");
 	
 	protected Container learn;
 	protected JPanel clickOK;
@@ -115,6 +115,7 @@ public class Final_Game {
 		
 		JButton gotIt = new JButton("OK");
 		gotIt.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
+		//gotIt.setPreferredSize(new Dimension(10,10));				//stackoverflow
 		
 		clickOK.add(gotIt);											//OK button
 		
