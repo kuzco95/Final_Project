@@ -14,8 +14,8 @@ import javax.imageio.ImageIO;
 
 public class Super_Class {
 	
-	protected static  JFrame mapImage;
-	protected static  ImageIcon mapIcon;
+	protected JFrame mapImage;
+	protected  ImageIcon mapIcon;
 	
 	public void pick_Room(String[] args){
 		

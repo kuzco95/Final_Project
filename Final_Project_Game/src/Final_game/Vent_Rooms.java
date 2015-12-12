@@ -12,7 +12,7 @@ import javax.imageio.ImageIO;
 
 public class Vent_Rooms extends Super_Class{
 
-	public void Vent(String[] args){ 
+	public void Vent(){ 
 		
 		JFrame pickRoom = new JFrame("Pick a room");
 		JLabel selectRoom = new JLabel("<html> <font color='silver'> Select a room"

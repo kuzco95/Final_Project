@@ -37,11 +37,7 @@ public class Final_Game {
 	
 	//ACTION CODE METHOD
 	public void actionCode(){
-		titleIcon = new ImageIcon("X:/Desktop/GameMapNoLabels.png");				//inserts map
-		titleImage = new JLabel(titleIcon);
-		gameMap.add(titleImage);
-		gameMap.setExtendedState( gameMap.getExtendedState()|JFrame.MAXIMIZED_BOTH );	//sets the size of the window code from stackoverflow.com
-		gameMap.setLocationRelativeTo(null);
+		
 		
 		Context = introContext.getContentPane();
 		Context.setBackground(Color.black);	
@@ -63,32 +59,45 @@ public class Final_Game {
 		
 		introContext.add(contextContent);         				  	//JFrame
 		introContext.add(controlPanel);
-		introContext.setDefaultCloseOperation(0);   				//closes program when you close window; code from Cordell
+		introContext.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 		introContext.setVisible(true);	
 		
 		viewMap.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 			public void actionPerformed(ActionEvent E){
-				introContext.dispose();						//closes JFrame
+				//introContext.dispose();						//closes JFrame
 				
-				System.out.println("The thing will close.");
+				//System.out.println("The thing will close.");
 				
 				Pre_Pick();
 				
 			} //end of action event code
 			});	//end of action recognition code
 		
-	
+		return; 
 			} //end action code method
 	
 	
 	public void Pre_Pick(){
 		introContext.dispose();						//closes JFrame
+		gameMap.setAlwaysOnTop(true);
 		
+		titleIcon = new ImageIcon("X:/Desktop/GameMapNoLabels.png");				//inserts map
+		titleImage = new JLabel(titleIcon);
+		gameMap.add(titleImage);
+		//titleImage.setVisible(true);
+		gameMap.setExtendedState( gameMap.getExtendedState()|JFrame.MAXIMIZED_BOTH );	//sets the size of the window code from stackoverflow.com
+		gameMap.setLocationRelativeTo(null);
 		gameMap.setVisible(true); 					//makes game map visible
+		gameMap.setDefaultCloseOperation(1);   				//closes program when you close window; code from Cordell
+		//gameMap.repaint();
+		 
+//		try{Thread.sleep(4000);}					//displays for 4.0 seconds							
+//		catch(Exception e){};
+//	
+//		
+//		gameMap.dispose();
+//		gameMap.setVisible(false);
 		
-		try{Thread.sleep(4000);}					//displays for 4.0 seconds							
-		catch(Exception e){};
-		gameMap.setVisible(false);
 		
 		learn = asylumRevelation.getContentPane();
 		learn.setBackground(Color.black);
@@ -111,7 +120,9 @@ public class Final_Game {
 		
 		asylumRevelation.add(RevelationContent);         			//JFrame
 		asylumRevelation.add(clickOK);
-		asylumRevelation.setDefaultCloseOperation(0);   			
+		asylumRevelation.setDefaultCloseOperation(2);
+		
+
 		asylumRevelation.setVisible(true);
 		
 		gotIt.addActionListener(new ActionListener(){		//creates ActionListener for OK button
@@ -121,12 +132,17 @@ public class Final_Game {
 			} //end of action event code
 			});	//end of action recognition code	
 		
+		Vent_Rooms transfer = new Vent_Rooms();
+		transfer.Vent();
+		
+		return;
 	} //end Pre_Pick method
 	
 	
 	public void GameOver() { 
 		
+		return;
 	}//end GameOver method
 
-
+	
 		}//end class
