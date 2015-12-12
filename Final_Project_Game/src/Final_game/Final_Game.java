@@ -29,7 +29,7 @@ public class Final_Game {
 	protected JFrame asylumRevelation = new JFrame("Enlightenment");
 	protected JLabel RevelationContent = new JLabel("<html> <font color='silver'> After looking out "
 			+ "the small window in the door, you soon realize that you are, in fact, in a Nazi "
-			+ "facility. Get out quickly. </font><html>");
+			+ "facility. Try and attract the guard's attention and get out quickly. </font><html>");
 	
 	protected Container learn;
 	protected JPanel clickOK;
@@ -81,7 +81,7 @@ public class Final_Game {
 		introContext.dispose();						//closes JFrame
 		gameMap.setAlwaysOnTop(true);
 		
-		titleIcon = new ImageIcon("X:/Desktop/GameMapNoLabels.png");				//inserts map
+		titleIcon = new ImageIcon("X:/Desktop/StartingGameMap.png");				//inserts map
 		titleImage = new JLabel(titleIcon);
 		gameMap.add(titleImage);
 		//titleImage.setVisible(true);
@@ -125,15 +125,16 @@ public class Final_Game {
 
 		asylumRevelation.setVisible(true);
 		
+		Vent_Rooms transfer = new Vent_Rooms();
 		gotIt.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 			public void actionPerformed(ActionEvent E){
 				asylumRevelation.dispose();						//closes JFrame
-						
+				transfer.Vent();
 			} //end of action event code
 			});	//end of action recognition code	
 		
-		Vent_Rooms transfer = new Vent_Rooms();
-		transfer.Vent();
+		
+		
 		
 		return;
 	} //end Pre_Pick method
