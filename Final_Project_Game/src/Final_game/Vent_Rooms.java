@@ -13,7 +13,11 @@ import javax.imageio.ImageIO;
 
 
 public class Vent_Rooms extends Super_Class{
+	
+	int counter = 0;
 
+	JMenuBar roomMenuBar = new JMenuBar();
+	
 	protected JFrame pickRoom = new JFrame("Pick a room");
 	protected JLabel selectRoom = new JLabel("<html> <font color='silver'> (A few "
 			+ "intense moments later...) <br> Congratulations! "
@@ -21,14 +25,18 @@ public class Vent_Rooms extends Super_Class{
 			+ "a room with a vent. Select a room to crawl to. (Vents are represented by "
 			+ "blue circles on the map)</font><html>");
 	protected Container chooseRoom;
-	JPanel choosePanel;
+	protected JPanel choosePanel;
 	
 	protected JFrame mapImage = new JFrame("Map"); 
 	protected ImageIcon mapIcon = new ImageIcon("");
 	
+	JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Now that you're in the room, "
+			+ "Would you like to attempt an escape through the window and risk being shot by the guards "
+			+ "in the towers while you hop the fence, or try another room?</font><html>");
+	
 	public void Vent(){ 
 		JMenu roomMenu = new JMenu("Rooms"); //JMenu for rooms
-		JMenuBar roomMenuBar = new JMenuBar(); 
+		 
 		JMenuItem lounge = new JMenuItem("1");
 		lounge.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
 		
@@ -62,6 +70,7 @@ public class Vent_Rooms extends Super_Class{
 		JMenuItem Hall1 = new JMenuItem("Hallway");
 		Hall1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 		
+		
 		roomMenu.add(lounge); 		//JMenu items
 		roomMenu.add(cRoom);
 		roomMenu.add(oRoom);
@@ -76,6 +85,8 @@ public class Vent_Rooms extends Super_Class{
 		
 		
 		roomMenuBar.add(roomMenu);
+		//pickRoom.setJMenuBar(roomMenuBar);
+		mapImage.setJMenuBar(roomMenuBar);
 		
 		//roomMenu.setVisible(true);
 		
@@ -108,20 +119,7 @@ public class Vent_Rooms extends Super_Class{
 			public void actionPerformed(ActionEvent E){
 				pickRoom.dispose();						//closes JFrame
 				//pickRoom.setAlwaysOnTop(true);
-				
-				//selectOK.setOpaque(false);
-				
-//				mapImage.setContentPane(new JPanel(){
-//					BufferedImage image = (BufferedImage) ImageIO.getImageReaders("X:/Desktop/FirstVent.png");
-//						public void paintComponent(Graphics g){
-//						super.paintComponent(g);
-//						g.drawImage(image, 0, 0, 300, 300, this);
-//					}
-//					
-//				});
-//				
-				
-				
+						
 				mapIcon = new ImageIcon("X:/Desktop/FirstVent.png");
 				map = new JLabel(mapIcon);
 				mapImage.add(map);
@@ -131,8 +129,118 @@ public class Vent_Rooms extends Super_Class{
 				mapImage.setVisible(true); 					
 				mapImage.setDefaultCloseOperation(1);
 				mapImage.setAlwaysOnTop(true);
-				//mapImage.add(selectOK);
-				Lounge();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		lounge.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+				counter ++;
+				if (counter > 6){
+					Final_Game last_Game = new Final_Game();
+					last_Game.loseMethod(points);
+					
+				}//end if statement
+				
+				else{
+					
+					Lounge();
+				}
+						
+						
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		cRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						cRoom();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		oRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						oRoom();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		dOffice.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						dOffice();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		safeRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						safeRoom();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		mOffice.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						mOffice();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		commRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						commRoom();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		checkIn.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						checkIn();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		lobby.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						lobby();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		potty.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						potty();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		Hall1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				mapImage.dispose();						//closes JFrame
+				//pickRoom.setAlwaysOnTop(true);
+						Hall1();
+				
 			} //end of action event code
 			});	//end of action recognition code
 		
@@ -163,6 +271,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -202,7 +311,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt.dispose();						//closes JFrame
 					
 					mapImage = new JFrame("Map");
-					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -220,9 +329,9 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					JFrame madeIt = new JFrame("Wait a minute...");
-					JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Now that you're in the room, "
-					+ "Would you like to attempt an escape through the window and risk being shot by the guards "
-					+ "in the towers while you hop the fence, or try walking to another room?</font><html>");
+//					JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Now that you're in the room, "
+//					+ "Would you like to attempt an escape through the window and risk being shot by the guards "
+//					+ "in the towers while you hop the fence, or try another room?</font><html>");
 					whatToDo = madeIt.getContentPane();
 					whatToDo.setBackground(Color.black);
 					
@@ -270,8 +379,9 @@ public class Vent_Rooms extends Super_Class{
 							madeIt.dispose();						//closes JFrame
 							
 							mapImage = new JFrame("Map");
-							
-							mapIcon = new ImageIcon("X:/Desktop/tortureRoom.png");
+							//mapImage.setJMenuBar(roomMenuBar);
+							mapImage.setJMenuBar(roomMenuBar);
+							mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 							map = new JLabel(mapIcon);
 							mapImage.add(map);
 							mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
@@ -304,6 +414,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -343,6 +454,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -361,6 +473,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					windowRooms();
 					
 					//mapImage.add(selectOK);
 					//commRoom();
@@ -386,6 +499,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -426,6 +540,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -442,6 +557,8 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					windowRooms();
+				
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -465,6 +582,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt3.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt3.setJMenuBar(roomMenuBar);
 			madeIt3.setSize(800,400);						//sets the size of the window
 			madeIt3.setLocationRelativeTo(null);
 			madeIt3.setLayout(new GridLayout(2,1));
@@ -505,6 +623,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -521,6 +640,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt3.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					windowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -544,6 +664,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt4.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt4.setJMenuBar(roomMenuBar);
 			madeIt4.setSize(800,400);						//sets the size of the window
 			madeIt4.setLocationRelativeTo(null);
 			madeIt4.setLayout(new GridLayout(2,1));
@@ -583,7 +704,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt4.dispose();						//closes JFrame
 					
 					mapImage = new JFrame("Map");
-					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -623,6 +744,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt5.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt5.setJMenuBar(roomMenuBar);
 			madeIt5.setSize(800,400);						//sets the size of the window
 			madeIt5.setLocationRelativeTo(null);
 			madeIt5.setLayout(new GridLayout(2,1));
@@ -661,7 +783,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt5.dispose();						//closes JFrame
 					
 					mapImage = new JFrame("Map");
-					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -701,6 +823,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt6.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt6.setJMenuBar(roomMenuBar);
 			madeIt6.setSize(800,400);						//sets the size of the window
 			madeIt6.setLocationRelativeTo(null);
 			madeIt6.setLayout(new GridLayout(2,1));
@@ -741,7 +864,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt6.dispose();						//closes JFrame
 					
 					mapImage = new JFrame("Map");
-					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -781,6 +904,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt7.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt7.setJMenuBar(roomMenuBar);
 			madeIt7.setSize(800,400);						//sets the size of the window
 			madeIt7.setLocationRelativeTo(null);
 			madeIt7.setLayout(new GridLayout(2,1));
@@ -820,7 +944,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt7.dispose();						//closes JFrame
 					
 					mapImage = new JFrame("Map");
-					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -860,6 +984,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt8.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt8.setJMenuBar(roomMenuBar);
 			madeIt8.setSize(800,400);						//sets the size of the window
 			madeIt8.setLocationRelativeTo(null);
 			madeIt8.setLayout(new GridLayout(2,1));
@@ -900,7 +1025,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt8.dispose();						//closes JFrame
 					
 					mapImage = new JFrame("Map");
-					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -949,6 +1074,8 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -988,6 +1115,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CusRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1003,7 +1131,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1027,6 +1155,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);					
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -1067,6 +1196,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CusRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1083,6 +1213,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1114,6 +1245,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -1154,6 +1286,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1169,7 +1302,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					windowRooms();												///////////////////
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1193,6 +1326,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -1233,7 +1367,8 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
-					mapImage = new JFrame("Map");
+					mapImage.setJMenuBar(roomMenuBar);
+					//mapImage = new JFrame("Map");
 					mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
 					map = null;
 					mapImage = null;
@@ -1255,6 +1390,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 
 					WinLose(howMany);
+					windowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1278,6 +1414,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -1318,6 +1455,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1334,6 +1472,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					windowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1357,6 +1496,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt3.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt3.setJMenuBar(roomMenuBar);
 			madeIt3.setSize(800,400);						//sets the size of the window
 			madeIt3.setLocationRelativeTo(null);
 			madeIt3.setLayout(new GridLayout(2,1));
@@ -1397,6 +1537,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1413,6 +1554,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt3.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					windowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1436,6 +1578,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt4.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt4.setJMenuBar(roomMenuBar);
 			madeIt4.setSize(800,400);						//sets the size of the window
 			madeIt4.setLocationRelativeTo(null);
 			madeIt4.setLayout(new GridLayout(2,1));
@@ -1476,6 +1619,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1522,6 +1666,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -1562,7 +1707,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
-					mapImage = new JFrame("Map");
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/DOffice.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1578,7 +1723,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1602,6 +1747,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);					
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -1642,6 +1788,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/DOffice.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1658,6 +1805,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1688,6 +1836,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -1728,6 +1877,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/SecretRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1743,7 +1893,8 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1767,6 +1918,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);					
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -1807,6 +1959,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/SecretRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1823,6 +1976,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1847,10 +2001,11 @@ public class Vent_Rooms extends Super_Class{
 		case 0:
 			JFrame madeIt = new JFrame("Wait a minute...");
 			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "operating room. Apparently no one is in there. Would you like to drop in, or crawl to another room?</font><html>");
+					+ "master's office. Apparently no one is in there. Would you like to drop in, or crawl to another room?</font><html>");
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -1891,6 +2046,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/MOffice.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1906,7 +2062,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1930,6 +2086,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -1949,6 +2106,7 @@ public class Vent_Rooms extends Super_Class{
 			JButton pointButton1 = new JButton("View Points");
 			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			mapImage.setJMenuBar(roomMenuBar);
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
 			whatNow.add(pointButton1);
@@ -1970,6 +2128,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/MOffice.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -1986,6 +2145,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2009,6 +2169,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -2049,6 +2210,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/MOffice.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2065,6 +2227,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2095,6 +2258,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -2135,6 +2299,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CommRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2151,6 +2316,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2174,6 +2340,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -2214,6 +2381,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CommRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2230,6 +2398,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2253,6 +2422,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -2293,6 +2463,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CommRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2309,6 +2480,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2332,6 +2504,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt3.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt3.setJMenuBar(roomMenuBar);
 			madeIt3.setSize(800,400);						//sets the size of the window
 			madeIt3.setLocationRelativeTo(null);
 			madeIt3.setLayout(new GridLayout(2,1));
@@ -2372,6 +2545,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CommRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2388,6 +2562,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt3.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2411,6 +2586,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt4.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt4.setJMenuBar(roomMenuBar);
 			madeIt4.setSize(800,400);						//sets the size of the window
 			madeIt4.setLocationRelativeTo(null);
 			madeIt4.setLayout(new GridLayout(2,1));
@@ -2451,6 +2627,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CommRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2482,38 +2659,7 @@ public class Vent_Rooms extends Super_Class{
 			
 			break;
 		}//end switch case	
-		
-//		JFrame madeIt = new JFrame("Wait a minute...");
-//		JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Congratulations! You have crawled to the vent above the "
-//				+ "communications room. Apparently there are (INSERT RANDOM NUMBER) Nazis in there. "
-//				+ "Would you like to drop in and attempt to take them out, or crawl to another room?</font><html>");
-//		whatToDo = madeIt.getContentPane();
-//		whatToDo.setBackground(Color.black);
-//		
-//		madeIt.setSize(800,400);						//sets the size of the window
-//		madeIt.setLocationRelativeTo(null);
-//		madeIt.setLayout(new GridLayout(2,1));
-//		
-//		dropOrDitch.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
-//		
-//		whatNow = new JPanel();				
-//		whatNow.setLayout(new FlowLayout());
-//		whatNow.setBackground(Color.black);
-//		
-//		JButton newRoom = new JButton("New Room");
-//		newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
-//		
-//		JButton jumpDown = new JButton("Drop In");
-//		jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
-//		
-//		whatNow.add(newRoom);
-//		whatNow.add(jumpDown);
-//		
-//		
-//		madeIt.add(dropOrDitch);         				  	//JFrame
-//		madeIt.add(whatNow);
-//		madeIt.setDefaultCloseOperation(1);   				//closes program when you close window; code from Cordell
-//		madeIt.setVisible(true);
+
 		
 	}//end method
 	
@@ -2529,6 +2675,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -2569,6 +2716,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CheckinRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2584,7 +2732,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2608,6 +2756,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -2647,6 +2796,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/CheckinRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2663,6 +2813,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2686,6 +2837,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -2725,6 +2877,8 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					mapIcon = new ImageIcon("X:/Desktop/CheckinRoom.png");
+					
+					mapImage.setJMenuBar(roomMenuBar);
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
 					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
@@ -2740,6 +2894,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2771,6 +2926,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -2811,6 +2967,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lobby.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2826,7 +2983,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					lobbyWin();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2850,6 +3007,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -2890,6 +3048,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lobby.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2906,6 +3065,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					lobbyWin();
 					
 				} //end of action event code
 				});	//end of action recognition code
@@ -2929,6 +3089,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -2969,6 +3130,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lobby.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -2985,6 +3147,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					lobbyWin();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3008,6 +3171,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt3.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt3.setJMenuBar(roomMenuBar);
 			madeIt3.setSize(800,400);						//sets the size of the window
 			madeIt3.setLocationRelativeTo(null);
 			madeIt3.setLayout(new GridLayout(2,1));
@@ -3048,6 +3212,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lobby.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3064,7 +3229,8 @@ public class Vent_Rooms extends Super_Class{
 					madeIt3.dispose();						//closes JFrame
 					
 					WinLose(howMany);
-								
+					lobbyWin();			
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -3087,6 +3253,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt4.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt4.setJMenuBar(roomMenuBar);
 			madeIt4.setSize(800,400);						//sets the size of the window
 			madeIt4.setLocationRelativeTo(null);
 			madeIt4.setLayout(new GridLayout(2,1));
@@ -3127,6 +3294,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Lobby.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3173,6 +3341,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt.setJMenuBar(roomMenuBar);
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -3213,6 +3382,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Bathroom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3228,7 +3398,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3252,6 +3422,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt1.setJMenuBar(roomMenuBar);
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
 			madeIt1.setLayout(new GridLayout(2,1));
@@ -3292,6 +3463,7 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
+					mapImage.setJMenuBar(roomMenuBar);
 					mapIcon = new ImageIcon("X:/Desktop/Bathroom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3308,6 +3480,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3337,6 +3510,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			
 			madeIt.setSize(800,400);						//sets the size of the window
 			madeIt.setLocationRelativeTo(null);
 			madeIt.setLayout(new GridLayout(2,1));
@@ -3360,7 +3534,7 @@ public class Vent_Rooms extends Super_Class{
 			whatNow.add(jumpDown);			
 			whatNow.add(pointButton);	
 			
-			mapImage = new JFrame("Map");
+			//mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
 			map = null;
 			mapImage = null;
@@ -3376,7 +3550,8 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
-					mapImage = new JFrame("Map");
+					mapImage.setJMenuBar(roomMenuBar);
+					//mapImage = new JFrame("Map");
 					mapIcon = new ImageIcon("X:/Desktop/Hall1.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3392,7 +3567,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3415,6 +3590,7 @@ public class Vent_Rooms extends Super_Class{
 					+ "or crawl to another room?</font><html>");
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
+			
 			
 			madeIt1.setSize(800,400);						//sets the size of the window
 			madeIt1.setLocationRelativeTo(null);
@@ -3455,7 +3631,8 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
-					mapImage = new JFrame("Map");
+					mapImage.setJMenuBar(roomMenuBar);
+					//mapImage = new JFrame("Map");
 					mapIcon = new ImageIcon("X:/Desktop/Hall1.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3472,6 +3649,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt1.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3495,6 +3673,7 @@ public class Vent_Rooms extends Super_Class{
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
+			//madeIt2.setJMenuBar(roomMenuBar);
 			madeIt2.setSize(800,400);						//sets the size of the window
 			madeIt2.setLocationRelativeTo(null);
 			madeIt2.setLayout(new GridLayout(2,1));
@@ -3536,7 +3715,8 @@ public class Vent_Rooms extends Super_Class{
 					
 					mapImage = new JFrame("Map");
 					
-					mapImage = new JFrame("Map");
+					mapImage.setJMenuBar(roomMenuBar);
+					//mapImage = new JFrame("Map");
 					mapIcon = new ImageIcon("X:/Desktop/Hall1.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
@@ -3553,6 +3733,7 @@ public class Vent_Rooms extends Super_Class{
 					madeIt2.dispose();						//closes JFrame
 					
 					WinLose(howMany);
+					noWindowRooms();
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3570,4 +3751,176 @@ public class Vent_Rooms extends Super_Class{
 		}//end switch case
 			
 	}//end method
+	
+	public void windowRooms(){
+		JFrame madeIt = new JFrame("Wait a minute...");
+	JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Now that you're safely in the room, "
+		+ "Would you like to attempt an escape through the window and risk being shot by the guards "
+		+ "in the towers while you hop the fence, or try another room?</font><html>");
+		whatToDo = madeIt.getContentPane();
+		whatToDo.setBackground(Color.black);
+		
+		madeIt.setSize(800,400);						//sets the size of the window
+		madeIt.setLocationRelativeTo(null);
+		madeIt.setLayout(new GridLayout(2,1));
+		
+		dropOrDitch.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+		
+		whatNow = new JPanel();				
+		whatNow.setLayout(new FlowLayout());
+		whatNow.setBackground(Color.black);
+		
+		JButton window = new JButton("Window");
+		window.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JButton newRoom = new JButton("New Room");
+		newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		whatNow.add(window);
+		whatNow.add(newRoom);
+		
+		mapImage = new JFrame("Map");
+		mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
+		map = null;
+		mapImage = null;
+		
+		
+		madeIt.add(dropOrDitch);         				  	//JFrame
+		madeIt.add(whatNow);
+		madeIt.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+		madeIt.setVisible(true);
+		
+		window.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				madeIt.dispose();						//closes JFrame
+				
+				runShot();
+				
+			} //end of action event code
+			});	//end of action recognition code
+		
+		newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			public void actionPerformed(ActionEvent E){
+				madeIt.dispose();						//closes JFrame
+				
+				mapImage = new JFrame("Map");
+				mapImage.setJMenuBar(roomMenuBar);
+				mapImage.setJMenuBar(roomMenuBar);
+				mapIcon = new ImageIcon("X:/Desktop/FirstVent.png");
+				map = new JLabel(mapIcon);
+				mapImage.add(map);
+				mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
+				mapImage.setLocationRelativeTo(null);
+				mapImage.setVisible(true); 					
+				mapImage.setDefaultCloseOperation(1);
+				mapImage.setAlwaysOnTop(true);			
+			} //end of action event code
+			});	//end of action recognition code
+//	} //end of action event code
+//	});	//end of action recognition code
+
+		
+	}//end method
+
+	public void noWindowRooms(){
+		JFrame madeIt = new JFrame("Wait a minute...");
+		JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You're safely in the room, "
+			+ "but there is no way to escape. Find another room.</font><html>");
+			whatToDo = madeIt.getContentPane();
+			whatToDo.setBackground(Color.black);
+			
+			madeIt.setSize(800,400);						//sets the size of the window
+			madeIt.setLocationRelativeTo(null);
+			madeIt.setLayout(new GridLayout(2,1));
+			
+			dropOrDitch.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+			
+			whatNow = new JPanel();				
+			whatNow.setLayout(new FlowLayout());
+			whatNow.setBackground(Color.black);
+			
+			
+			
+			JButton newRoom = new JButton("New Room");
+			newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
+			whatNow.add(newRoom);
+			
+			mapImage = new JFrame("Map");
+			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
+			map = null;
+			mapImage = null;
+			
+			
+			madeIt.add(dropOrDitch);         				  	//JFrame
+			madeIt.add(whatNow);
+			madeIt.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+			madeIt.setVisible(true);
+			
+			newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					madeIt.dispose();						//closes JFrame
+					
+					mapImage = new JFrame("Map");
+					mapImage.setJMenuBar(roomMenuBar);
+					
+					mapIcon = new ImageIcon("X:/Desktop/FirstVent.png");
+					map = new JLabel(mapIcon);
+					mapImage.add(map);
+					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
+					mapImage.setLocationRelativeTo(null);
+					mapImage.setVisible(true); 					
+					mapImage.setDefaultCloseOperation(1);
+					mapImage.setAlwaysOnTop(true);			
+				} //end of action event code
+				});	//end of action recognition code
+		
+	}//end method
+	
+	public  void lobbyWin(){
+		JFrame madeIt = new JFrame("Wait a minute...");
+		JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Awesome! Now that you have the "
+				+ "lobby to yourself - RUN!</font><html>");
+			whatToDo = madeIt.getContentPane();
+			whatToDo.setBackground(Color.black);
+			
+			madeIt.setSize(800,400);						//sets the size of the window
+			madeIt.setLocationRelativeTo(null);
+			madeIt.setLayout(new GridLayout(2,1));
+			
+			dropOrDitch.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+			
+			whatNow = new JPanel();				
+			whatNow.setLayout(new FlowLayout());
+			whatNow.setBackground(Color.black);
+			
+			
+			
+			JButton newRoom = new JButton("Run");
+			newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
+			whatNow.add(newRoom);
+			
+			mapImage = new JFrame("Map");
+			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
+			map = null;
+			mapImage = null;
+			
+			
+			madeIt.add(dropOrDitch);         				  	//JFrame
+			madeIt.add(whatNow);
+			madeIt.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+			madeIt.setVisible(true);
+			
+			newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					madeIt.dispose();						//closes JFrame
+					
+					Final_Game lobbyWin = new Final_Game();
+					lobbyWin.winMethod(points);		
+				} //end of action event code
+				});	//end of action recognition code
+		
+	}//end method
+	
 } //end class 

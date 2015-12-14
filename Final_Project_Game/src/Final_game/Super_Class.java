@@ -166,7 +166,7 @@ public class Super_Class {
 				loserOK.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent E){
 						loser.dispose();						//closes JFrame
-					
+					System.exit(0);
 					
 					}//end of action event code			
 				});//end of action recognition code

@@ -43,9 +43,6 @@ public class Final_Game extends Super_Class {
 	protected Container learn;
 	protected JPanel clickOK; ////////////////////////
 	
-//	public JFrame homeLandFrame = new JFrame("Map"); 
-//	protected Container homeContainer;
-//	private JPanel homePanel;
 	
 	protected JFrame homeLandFrame = new JFrame("Enlightenment");
 	protected JLabel homeLandLabel = new JLabel("<html> <font color='silver'> Select your country of origin. </font><html>");
@@ -54,7 +51,7 @@ public class Final_Game extends Super_Class {
 	private JPanel homePanel;
 	
 	
-	String comeFrom;
+	protected String comeFrom;
 	
 	public void motherLand(){
 		
@@ -233,50 +230,6 @@ public class Final_Game extends Super_Class {
 	}//end switch case
 		
 	}//end motherLand method
-	
-
-	
-	//ACTION CODE METHOD
-	public void actionCode(){
-		
-		
-//		Context = introContext.getContentPane();
-//		Context.setBackground(Color.black);	
-//		
-//		introContext.setSize(800,400);						//sets the size of the window
-//		introContext.setLocationRelativeTo(null);
-//		introContext.setLayout(new GridLayout(2,1));
-//		
-//		contextContent.setFont(new Font("Goudy old style",Font.PLAIN,20)); //declares font and size
-//
-//		controlPanel = new JPanel();					
-//		controlPanel.setLayout(new FlowLayout());
-//		controlPanel.setBackground(Color.black);	//makes JPanel background black
-//		
-//		JButton viewMap = new JButton("OK");
-//		viewMap.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
-//		
-//		controlPanel.add(viewMap);									//OK button
-//		
-//		introContext.add(contextContent);         				  	//JFrame
-//		introContext.add(controlPanel);
-//		introContext.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
-//		introContext.setVisible(true);	
-//		
-//		viewMap.addActionListener(new ActionListener(){		//creates ActionListener for OK button
-//			public void actionPerformed(ActionEvent E){
-//				//introContext.dispose();						//closes JFrame
-//				
-//				//System.out.println("The thing will close.");
-//				
-//				Pre_Pick();
-//				
-//			} //end of action event code
-//			});	//end of action recognition code
-		
-		return; 
-			} //end action code method
-	
 	
 	public void Pre_Pick(){
 		introContext.dispose();						//closes JFrame
