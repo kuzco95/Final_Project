@@ -5,7 +5,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
 import java.security.SecureRandom;
-import java.io.File;
 import java.io.*;
 import java.util.*;
 import javax.imageio.ImageIO;
@@ -13,10 +12,12 @@ import javax.imageio.ImageIO;
 
 
 public class Super_Class {
-	
+
 	protected SecureRandom NaziNumber = new SecureRandom();
 	
 	int points = 100;
+	
+	public JMenu roomMenu; 
 	
 	protected JFrame mapImage;
 	protected ImageIcon mapIcon;
@@ -37,37 +38,37 @@ public class Super_Class {
 	final JLabel choose;
 	final JPanel controlPanel;
 	
-	JButton lounge = new JButton("1");
+	JMenuItem lounge = new JMenuItem("1");
 	lounge.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
 	
-	JButton cRoom = new JButton("2");
+	JMenuItem cRoom = new JMenuItem("2");
 	cRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton oRoom = new JButton("3");
+	JMenuItem oRoom = new JMenuItem("3");
 	oRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton dOffice = new JButton("4");
+	JMenuItem dOffice = new JMenuItem("4");
 	dOffice.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton safeRoom = new JButton("5");
+	JMenuItem safeRoom = new JMenuItem("5");
 	safeRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton mOffice = new JButton("6");
+	JMenuItem mOffice = new JMenuItem("6");
 	mOffice.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton commRoom = new JButton("7");
+	JMenuItem commRoom = new JMenuItem("7");
 	commRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton checkIn = new JButton("8");
+	JMenuItem checkIn = new JMenuItem("8");
 	checkIn.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton lobby = new JButton("9");
+	JMenuItem lobby = new JMenuItem("9");
 	lobby.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton potty = new JButton("10");
+	JMenuItem potty = new JMenuItem("10");
 	potty.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
-	JButton Hall1 = new JButton("Hallway");
+	JMenuItem Hall1 = new JMenuItem("Hallway");
 	Hall1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 	
 	JButton newRoom = new JButton("New Room");
@@ -79,6 +80,8 @@ public class Super_Class {
 	}//end Super_Class method
 	
 	public void WinLose(int thereWere){
+		 
+		
 		
 		 SecureRandom winLose = new SecureRandom();
 		 int outcome = winLose.nextInt(1);
@@ -93,7 +96,7 @@ public class Super_Class {
 		 {
 		 case 0:
 			 
-			 points = points + (thereWere*100);		//adds points
+			 points = points + (thereWere*100);		//adds points to the score
 			 
 			 JFrame winner = new JFrame("Win!");
 			 JLabel youWin = new JLabel("<html> <font color='silver'> After a brief struggle, you "
@@ -132,9 +135,11 @@ public class Super_Class {
 			 break;
 			 
 		 case 1:
+			 points = points + (thereWere*100);		//adds points to the score
+			 
 			 JFrame loser = new JFrame("Loss!");
 			 JLabel youLose = new JLabel("<html> <font color='silver'> You have been slain.</font><html>");
-			 
+			
 			 loserBackground = loser.getContentPane();
 			 loserBackground.setBackground(Color.black);
 			 
@@ -206,7 +211,7 @@ public class Super_Class {
 					
 					
 					Final_Game over = new Final_Game();
-					over.loseMethod();
+					over.loseMethod(points);
 				} //end of action event code
 				});	//end of action recognition code			
 		
@@ -222,7 +227,7 @@ public class Super_Class {
 		 {
 		 case 0: case 1: case 2: 
 			 JFrame liver = new JFrame("Win!");
-			 JLabel youLive = new JLabel("<html> <font color='silver'> It was a close call, but you"
+			 JLabel youLive = new JLabel("<html> <font color='silver'> It was a close call, but you "
 			 		+ "managed to hop the fence without getting shot.</font><html>");
 			 
 			 winnerBackground = liver.getContentPane();
@@ -292,19 +297,14 @@ public class Super_Class {
 						dier.dispose();						//closes JFrame
 					
 						Final_Game youLost = new Final_Game();
-						youLost.loseMethod();
+						youLost.loseMethod(points);
 						
 					}//end of action event code			
 				});//end of action recognition code
 				
 		 
 		 }//end switch case
-		 
-		 
-			 
-		 
-		
-		
+
 		
 	}//end method
 

@@ -27,6 +27,58 @@ public class Vent_Rooms extends Super_Class{
 	protected ImageIcon mapIcon = new ImageIcon("");
 	
 	public void Vent(){ 
+		JMenu roomMenu = new JMenu("Rooms"); //JMenu for rooms
+		JMenuBar roomMenuBar = new JMenuBar(); 
+		JMenuItem lounge = new JMenuItem("1");
+		lounge.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
+		
+		JMenuItem cRoom = new JMenuItem("2");
+		cRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem oRoom = new JMenuItem("3");
+		oRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem dOffice = new JMenuItem("4");
+		dOffice.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem safeRoom = new JMenuItem("5");
+		safeRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem mOffice = new JMenuItem("6");
+		mOffice.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem commRoom = new JMenuItem("7");
+		commRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem checkIn = new JMenuItem("8");
+		checkIn.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem lobby = new JMenuItem("9");
+		lobby.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem potty = new JMenuItem("10");
+		potty.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		JMenuItem Hall1 = new JMenuItem("Hallway");
+		Hall1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		
+		roomMenu.add(lounge); 		//JMenu items
+		roomMenu.add(cRoom);
+		roomMenu.add(oRoom);
+		roomMenu.add(dOffice);
+		roomMenu.add(safeRoom);
+		roomMenu.add(mOffice);
+		roomMenu.add(commRoom);
+		roomMenu.add(checkIn);
+		roomMenu.add(lobby);
+		roomMenu.add(potty);
+		roomMenu.add(Hall1);
+		
+		
+		roomMenuBar.add(roomMenu);
+		
+		//roomMenu.setVisible(true);
+		
 		
 		chooseRoom = pickRoom.getContentPane();
 		chooseRoom.setBackground(Color.black);
@@ -68,11 +120,14 @@ public class Vent_Rooms extends Super_Class{
 //					
 //				});
 //				
+				
+				
 				mapIcon = new ImageIcon("X:/Desktop/FirstVent.png");
 				map = new JLabel(mapIcon);
 				mapImage.add(map);
+				//mapImage.add(roomMenuBar);
 				mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-				mapImage.setLocationRelativeTo(null);
+				mapImage.setLocationRelativeTo(null);			
 				mapImage.setVisible(true); 					
 				mapImage.setDefaultCloseOperation(1);
 				mapImage.setAlwaysOnTop(true);
@@ -124,8 +179,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -224,6 +283,17 @@ public class Vent_Rooms extends Super_Class{
 						});	//end of action recognition code
 				} //end of action event code
 				});	//end of action recognition code
+			
+			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -250,8 +320,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -292,6 +366,16 @@ public class Vent_Rooms extends Super_Class{
 					//commRoom();
 				} //end of action event code
 				});	//end of action recognition code
+			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -318,8 +402,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -358,6 +446,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 3:
@@ -383,9 +480,13 @@ public class Vent_Rooms extends Super_Class{
 			
 			JButton jumpDown3 = new JButton("Drop In");
 			jumpDown3.setFont(new Font("Goudy old style",Font.PLAIN,16));
+
+			JButton pointButton3 = new JButton("View Points");
+			pointButton3.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
 			whatNow.add(newRoom3);
 			whatNow.add(jumpDown3);
+			whatNow.add(pointButton3);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -424,6 +525,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton3.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 4:
@@ -450,8 +560,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown4 = new JButton("Drop In");
 			jumpDown4.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton4 = new JButton("View Points");
+			pointButton4.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom4);
 			whatNow.add(jumpDown4);
+			whatNow.add(pointButton4);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -485,8 +599,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-				WinLose(howMany);
+				fourPlus();
 				
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton4.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -516,8 +639,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown5 = new JButton("Drop In");
 			jumpDown5.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton5 = new JButton("View Points");
+			pointButton5.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom5);
 			whatNow.add(jumpDown5);
+			whatNow.add(pointButton5);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -550,7 +677,16 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt5.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton5.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
 					
 				} //end of action event code
 				});	//end of action recognition code
@@ -581,8 +717,13 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown6 = new JButton("Drop In");
 			jumpDown6.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton6 = new JButton("View Points");
+			pointButton6.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom6);
 			whatNow.add(jumpDown6);
+			whatNow.add(pointButton6);
+			
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -616,8 +757,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt6.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton6.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -646,9 +796,13 @@ public class Vent_Rooms extends Super_Class{
 			
 			JButton jumpDown7 = new JButton("Drop In");
 			jumpDown7.setFont(new Font("Goudy old style",Font.PLAIN,16));
+
+			JButton pointButton7 = new JButton("View Points");
+			pointButton7.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
 			whatNow.add(newRoom7);
 			whatNow.add(jumpDown7);
+			whatNow.add(pointButton7);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -682,8 +836,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt7.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton7.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -713,8 +876,13 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown8 = new JButton("Drop In");
 			jumpDown8.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton8 = new JButton("View Points");
+			pointButton8.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom8);
 			whatNow.add(jumpDown8);
+			whatNow.add(pointButton8);
+			
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -748,8 +916,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt8.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton8.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -788,8 +965,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -827,6 +1008,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -853,8 +1043,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -893,6 +1087,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		}//end switch case
@@ -927,8 +1130,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -967,6 +1174,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -993,8 +1209,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1039,6 +1259,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -1065,8 +1294,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1105,6 +1338,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 3:
@@ -1131,8 +1373,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown3 = new JButton("Drop In");
 			jumpDown3.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton3 = new JButton("View Points");
+			pointButton3.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom3);
 			whatNow.add(jumpDown3);
+			whatNow.add(pointButton3);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1171,6 +1417,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton3.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 4:
@@ -1197,8 +1452,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown4 = new JButton("Drop In");
 			jumpDown4.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton4 = new JButton("View Points");
+			pointButton4.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom4);
 			whatNow.add(jumpDown4);
+			whatNow.add(pointButton4);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1232,8 +1491,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton4.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -1270,8 +1538,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1311,6 +1583,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -1337,8 +1618,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");		//////////////////////////////////////////
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1377,6 +1662,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		}//end switch case
@@ -1410,8 +1704,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1450,6 +1748,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -1476,8 +1783,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1516,6 +1827,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 		}//end switch case
 	}//end method
@@ -1547,8 +1867,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1587,6 +1911,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -1613,8 +1946,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1653,6 +1990,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -1679,8 +2025,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1716,6 +2066,15 @@ public class Vent_Rooms extends Super_Class{
 					
 					WinLose(howMany);
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -1752,8 +2111,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1792,6 +2155,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -1818,8 +2190,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1858,6 +2234,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -1884,8 +2269,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1924,6 +2313,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 3:
@@ -1950,8 +2348,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown3 = new JButton("Drop In");
 			jumpDown3.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton3 = new JButton("View Points");
+			pointButton3.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom3);
 			whatNow.add(jumpDown3);
+			whatNow.add(pointButton3);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -1990,6 +2392,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton3.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 4:
@@ -2016,8 +2427,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown4 = new JButton("Drop In");
 			jumpDown4.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton4 = new JButton("View Points");
+			pointButton4.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom4);
 			whatNow.add(jumpDown4);
+			whatNow.add(pointButton4);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2051,8 +2466,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton4.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -2121,8 +2545,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2161,6 +2589,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -2187,8 +2624,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2226,6 +2667,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -2252,8 +2702,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2287,6 +2741,15 @@ public class Vent_Rooms extends Super_Class{
 					
 					WinLose(howMany);
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -2324,8 +2787,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2364,6 +2831,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -2390,8 +2866,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2430,6 +2910,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -2456,8 +2945,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2496,6 +2989,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 3:
@@ -2522,8 +3024,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown3 = new JButton("Drop In");
 			jumpDown3.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton3 = new JButton("View Points");
+			pointButton3.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom3);
 			whatNow.add(jumpDown3);
+			whatNow.add(pointButton3);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2562,6 +3068,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton3.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 4:
@@ -2588,8 +3103,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown4 = new JButton("Drop In");
 			jumpDown4.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton4 = new JButton("View Points");
+			pointButton4.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom4);
 			whatNow.add(jumpDown4);
+			whatNow.add(pointButton4);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2623,8 +3142,17 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					WinLose(howMany);
+					fourPlus();
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton4.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -2661,8 +3189,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
 			whatNow.add(jumpDown);
+			whatNow.add(pointButton);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2701,6 +3233,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -2727,6 +3268,9 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
 			map = null;
@@ -2734,6 +3278,7 @@ public class Vent_Rooms extends Super_Class{
 			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			
 			madeIt1.add(dropOrDitch1);         				  	//JFrame
@@ -2764,6 +3309,15 @@ public class Vent_Rooms extends Super_Class{
 					
 					WinLose(howMany);
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -2799,8 +3353,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown = new JButton("Drop In");
 			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton = new JButton("View Points");
+			pointButton.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom);
-			whatNow.add(jumpDown);
+			whatNow.add(jumpDown);			
+			whatNow.add(pointButton);	
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2839,6 +3397,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break; 
 			
 		case 1:
@@ -2865,8 +3432,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown1 = new JButton("Drop In");
 			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton1 = new JButton("View Points");
+			pointButton1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom1);
 			whatNow.add(jumpDown1);
+			whatNow.add(pointButton1);
 			
 			mapImage = new JFrame("Map");					////////////////////
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -2905,6 +3476,15 @@ public class Vent_Rooms extends Super_Class{
 				} //end of action event code
 				});	//end of action recognition code
 			
+			pointButton1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
+				} //end of action event code
+				});	//end of action recognition code
+			
 			break;
 			
 		case 2:
@@ -2931,8 +3511,12 @@ public class Vent_Rooms extends Super_Class{
 			JButton jumpDown2 = new JButton("Drop In");
 			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
+			JButton pointButton2 = new JButton("View Points");
+			pointButton2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			whatNow.add(newRoom2);
 			whatNow.add(jumpDown2);
+			whatNow.add(pointButton2);
 			
 			
 			mapImage = new JFrame("Map");						//////////////////////////
@@ -2970,6 +3554,15 @@ public class Vent_Rooms extends Super_Class{
 					
 					WinLose(howMany);
 								
+				} //end of action event code
+				});	//end of action recognition code
+			
+			pointButton2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+				public void actionPerformed(ActionEvent E){
+					//madeIt.dispose();						//closes JFrame
+					
+				JOptionPane.showMessageDialog(null, "Current points: " + points);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
