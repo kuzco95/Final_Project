@@ -24,8 +24,10 @@ public class No_Vent_Rooms extends Super_Class {
 		{
 		case 0:
 			JFrame madeIt = new JFrame("Wait a minute...");
-			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "operating room. Apparently no one is in there. Would you like to drop in, or crawl to another room?</font><html>");
+			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You made it to the torture room. "
+					+ " Apparently no one is in there. Would you like to attempt an escape through the window"
+					+ "and risk being shot by the guards in the towers while you hop the fence,"
+					+ " or try another room?</font><html>");
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -39,14 +41,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton window = new JButton("Window");
+			window.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom = new JButton("New Room");
 			newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown = new JButton("Drop In");
-			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(window);
 			whatNow.add(newRoom);
-			whatNow.add(jumpDown);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -59,7 +61,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt.setVisible(true);
 			
-			newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			window.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
@@ -76,11 +78,11 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
+					mapIcon = new ImageIcon("X:/Desktop/tortureRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
 					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
@@ -96,9 +98,9 @@ public class No_Vent_Rooms extends Super_Class {
 			
 		case 1:
 			JFrame madeIt1 = new JFrame("Wait a minute...");
-			JLabel dropOrDitch1 = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "master's office. Apparently, there is one Nazi in there. Would you like to drop in and try to take him out, "
-					+ "or crawl to another room?</font><html>");
+			JLabel dropOrDitch1 = new JLabel("<html> <font color='silver'> You made it to the torture room. "
+					+ " Apparently there is one Nazi in there. Would you like to attempt to take him out, or"
+					+ "run to a different room?</font><html>");
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -112,14 +114,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton fight1 = new JButton("Fight");
+			fight1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom1 = new JButton("New Room");
 			newRoom1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown1 = new JButton("Drop In");
-			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(fight1);
 			whatNow.add(newRoom1);
-			whatNow.add(jumpDown1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -132,7 +134,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt1.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt1.setVisible(true);
 			
-			newRoom1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			fight1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
@@ -149,11 +151,11 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
+					mapIcon = new ImageIcon("X:/Desktop/tortureRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
 					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
@@ -169,9 +171,9 @@ public class No_Vent_Rooms extends Super_Class {
 			
 		case 2:
 			JFrame madeIt2 = new JFrame("Wait a minute...");
-			JLabel dropOrDitch2 = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "master's office. Apparently, there are two Nazis in there. Would you like to drop in and try to take them out, "
-					+ "or crawl to another room?</font><html>");
+			JLabel dropOrDitch2 = new JLabel("<html> <font color='silver'> You made it to the torture room. "
+					+ " Apparently there are two Nazis in there. Would you like to attempt to take them out, or"
+					+ "run to a different room?</font><html>");
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -185,14 +187,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
-			JButton newRoom2 = new JButton("New Room");
+			JButton Fight2 = new JButton("Fight");
+			Fight2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
+			JButton newRoom2 = new JButton("Drop In");
 			newRoom2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown2 = new JButton("Drop In");
-			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(Fight2);
 			whatNow.add(newRoom2);
-			whatNow.add(jumpDown2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -205,7 +207,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt2.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt2.setVisible(true);
 			
-			newRoom2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			Fight2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
@@ -222,11 +224,11 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
+					mapIcon = new ImageIcon("X:/Desktop/tortureRoom.png");
 					map = new JLabel(mapIcon);
 					mapImage.add(map);
 					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
@@ -249,8 +251,9 @@ public class No_Vent_Rooms extends Super_Class {
 		{
 		case 0:
 			JFrame madeIt = new JFrame("Wait a minute...");
-			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "operating room. Apparently no one is in there. Would you like to drop in, or crawl to another room?</font><html>");
+			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You made it to Hallway 2. "
+					+ " Apparently there is no one in there. Would you like to attempt to take him out, or"	////////////////
+					+ "run to a different room?</font><html>");
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -321,9 +324,9 @@ public class No_Vent_Rooms extends Super_Class {
 			
 		case 1:
 			JFrame madeIt1 = new JFrame("Wait a minute...");
-			JLabel dropOrDitch1 = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "master's office. Apparently, there is one Nazi in there. Would you like to drop in and try to take him out, "
-					+ "or crawl to another room?</font><html>");
+			JLabel dropOrDitch1 = new JLabel("<html> <font color='silver'> You made it to Hallway 2. "
+					+ " There is one Nazi in there. Would you like to attempt to take him out, or "
+					+ "run to a different room?</font><html>");
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -337,14 +340,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton fight1 = new JButton("Fight");
+			fight1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom1 = new JButton("New Room");
 			newRoom1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown1 = new JButton("Drop In");
-			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(fight1);
 			whatNow.add(newRoom1);
-			whatNow.add(jumpDown1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -357,7 +360,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt1.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt1.setVisible(true);
 			
-			newRoom1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			fight1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
@@ -374,7 +377,7 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
@@ -394,9 +397,9 @@ public class No_Vent_Rooms extends Super_Class {
 			
 		case 2:
 			JFrame madeIt2 = new JFrame("Wait a minute...");
-			JLabel dropOrDitch2 = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "master's office. Apparently, there are two Nazis in there. Would you like to drop in and try to take them out, "
-					+ "or crawl to another room?</font><html>");
+			JLabel dropOrDitch2 = new JLabel("<html> <font color='silver'> You made it to Hallway 2. "
+					+ " Apparently there are two Nazis in there. Would you like to attempt to take themout, or"
+					+ " run to a different room?</font><html>");
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -410,14 +413,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton fight2 = new JButton("Fight");
+			fight2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom2 = new JButton("New Room");
 			newRoom2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown2 = new JButton("Drop In");
-			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(fight2);
 			whatNow.add(newRoom2);
-			whatNow.add(jumpDown2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -430,7 +433,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt2.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt2.setVisible(true);
 			
-			newRoom2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			fight2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
@@ -447,7 +450,7 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
@@ -474,8 +477,9 @@ public class No_Vent_Rooms extends Super_Class {
 		{
 		case 0:
 			JFrame madeIt = new JFrame("Wait a minute...");
-			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "operating room. Apparently no one is in there. Would you like to drop in, or crawl to another room?</font><html>");
+			JLabel dropOrDitch = new JLabel("<html> <font color='silver'> You made it to Hallway 3. "
+					+ " Apparently there is no one in there. Would you like to attempt to take him out, or"
+					+ " run to a different room?</font><html>");
 			whatToDo = madeIt.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -489,14 +493,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton fight = new JButton("Fight");
+			fight.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom = new JButton("New Room");
 			newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown = new JButton("Drop In");
-			jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(fight);
 			whatNow.add(newRoom);
-			whatNow.add(jumpDown);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -509,7 +513,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt.setVisible(true);
 			
-			newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			fight.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
@@ -526,7 +530,7 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
@@ -546,9 +550,9 @@ public class No_Vent_Rooms extends Super_Class {
 			
 		case 1:
 			JFrame madeIt1 = new JFrame("Wait a minute...");
-			JLabel dropOrDitch1 = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "master's office. Apparently, there is one Nazi in there. Would you like to drop in and try to take him out, "
-					+ "or crawl to another room?</font><html>");
+			JLabel dropOrDitch1 = new JLabel("<html> <font color='silver'> You made it to Hallway 3. "
+					+ " Apparently there is one Nazi in there. Would you like to attempt to take him out, or"
+					+ "run to a different room?</font><html>");
 			whatToDo = madeIt1.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -562,14 +566,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton fight1 = new JButton("Fight");
+			fight1.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom1 = new JButton("New Room");
 			newRoom1.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown1 = new JButton("Drop In");
-			jumpDown1.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(fight1);
 			whatNow.add(newRoom1);
-			whatNow.add(jumpDown1);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -582,7 +586,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt1.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt1.setVisible(true);
 			
-			newRoom1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			fight1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
@@ -599,7 +603,7 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
@@ -619,9 +623,9 @@ public class No_Vent_Rooms extends Super_Class {
 			
 		case 2:
 			JFrame madeIt2 = new JFrame("Wait a minute...");
-			JLabel dropOrDitch2 = new JLabel("<html> <font color='silver'> You have crawled to the vent above the "
-					+ "master's office. Apparently, there are two Nazis in there. Would you like to drop in and try to take them out, "
-					+ "or crawl to another room?</font><html>");
+			JLabel dropOrDitch2 = new JLabel("<html> <font color='silver'> You made it to Hallway 3. "
+					+ " Apparently there are two Nazis in there. Would you like to attempt to take them out, or"
+					+ "run to a different room?</font><html>");
 			whatToDo = madeIt2.getContentPane();
 			whatToDo.setBackground(Color.black);
 			
@@ -635,14 +639,14 @@ public class No_Vent_Rooms extends Super_Class {
 			whatNow.setLayout(new FlowLayout());
 			whatNow.setBackground(Color.black);
 			
+			JButton fight2 = new JButton("Fight");
+			fight2.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			
 			JButton newRoom2 = new JButton("New Room");
 			newRoom2.setFont(new Font("Goudy old style",Font.PLAIN,16));
 			
-			JButton jumpDown2 = new JButton("Drop In");
-			jumpDown2.setFont(new Font("Goudy old style",Font.PLAIN,16));
-			
+			whatNow.add(fight2);
 			whatNow.add(newRoom2);
-			whatNow.add(jumpDown2);
 			
 			mapImage = new JFrame("Map");
 			mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
@@ -655,7 +659,7 @@ public class No_Vent_Rooms extends Super_Class {
 			madeIt2.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
 			madeIt2.setVisible(true);
 			
-			newRoom2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			fight2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
@@ -672,7 +676,7 @@ public class No_Vent_Rooms extends Super_Class {
 				} //end of action event code
 				});	//end of action recognition code
 			
-			jumpDown2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+			newRoom2.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					

@@ -77,7 +77,7 @@ public class Vent_Rooms extends Super_Class{
 				mapImage.setDefaultCloseOperation(1);
 				mapImage.setAlwaysOnTop(true);
 				//mapImage.add(selectOK);
-				potty();
+				Lounge();
 			} //end of action event code
 			});	//end of action recognition code
 		
@@ -160,17 +160,68 @@ public class Vent_Rooms extends Super_Class{
 			jumpDown.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
+					JFrame madeIt = new JFrame("Wait a minute...");
+					JLabel dropOrDitch = new JLabel("<html> <font color='silver'> Now that you're in the room, "
+					+ "Would you like to attempt an escape through the window and risk being shot by the guards "
+					+ "in the towers while you hop the fence, or try walking to another room?</font><html>");
+					whatToDo = madeIt.getContentPane();
+					whatToDo.setBackground(Color.black);
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
-					//mapImage.add(selectOK);
-					//commRoom();
+					madeIt.setSize(800,400);						//sets the size of the window
+					madeIt.setLocationRelativeTo(null);
+					madeIt.setLayout(new GridLayout(2,1));
+					
+					dropOrDitch.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+					
+					whatNow = new JPanel();				
+					whatNow.setLayout(new FlowLayout());
+					whatNow.setBackground(Color.black);
+					
+					JButton window = new JButton("Window");
+					window.setFont(new Font("Goudy old style",Font.PLAIN,16));
+					
+					JButton newRoom = new JButton("New Room");
+					newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+					
+					whatNow.add(window);
+					whatNow.add(newRoom);
+					
+					mapImage = new JFrame("Map");
+					mapIcon = null;//new ImageIcon("X:/Desktop/Hall1.png");
+					map = null;
+					mapImage = null;
+					
+					
+					madeIt.add(dropOrDitch);         				  	//JFrame
+					madeIt.add(whatNow);
+					madeIt.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+					madeIt.setVisible(true);
+					
+					window.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+						public void actionPerformed(ActionEvent E){
+							madeIt.dispose();						//closes JFrame
+							
+							runShot();
+							
+						} //end of action event code
+						});	//end of action recognition code
+					
+					newRoom.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+						public void actionPerformed(ActionEvent E){
+							madeIt.dispose();						//closes JFrame
+							
+							mapImage = new JFrame("Map");
+							
+							mapIcon = new ImageIcon("X:/Desktop/tortureRoom.png");
+							map = new JLabel(mapIcon);
+							mapImage.add(map);
+							mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
+							mapImage.setLocationRelativeTo(null);
+							mapImage.setVisible(true); 					
+							mapImage.setDefaultCloseOperation(1);
+							mapImage.setAlwaysOnTop(true);			
+						} //end of action event code
+						});	//end of action recognition code
 				} //end of action event code
 				});	//end of action recognition code
 			break; 
@@ -235,14 +286,8 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
+					
 					//mapImage.add(selectOK);
 					//commRoom();
 				} //end of action event code
@@ -308,14 +353,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -381,14 +419,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt3.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -454,15 +485,8 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
-								
+				WinLose(howMany);
+				
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -526,15 +550,8 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt5.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
-								
+					WinLose(howMany);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -599,14 +616,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt6.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -672,14 +682,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt7.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -745,14 +748,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt8.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -826,14 +822,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/CusRoom.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -899,14 +888,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/CusRoom.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -980,14 +962,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1058,15 +1033,8 @@ public class Vent_Rooms extends Super_Class{
 			jumpDown1.addActionListener(new ActionListener(){		//creates ActionListener for OK button
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
-					
-					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1132,14 +1100,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1205,14 +1166,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt3.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/ORoom.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1278,14 +1232,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1359,14 +1306,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1432,14 +1372,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1512,14 +1445,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1585,14 +1511,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1663,14 +1582,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1736,14 +1648,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1809,14 +1714,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1889,14 +1787,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -1962,14 +1853,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2035,14 +1919,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2108,14 +1985,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt3.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2181,14 +2051,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2293,14 +2156,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2365,14 +2221,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2436,14 +2285,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2517,14 +2359,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2590,15 +2425,8 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
-								
+					WinLose(howMany);
+					
 				} //end of action event code
 				});	//end of action recognition code
 			
@@ -2663,14 +2491,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2736,14 +2557,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt3.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2809,14 +2623,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt4.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2889,14 +2696,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -2962,14 +2762,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapIcon = new ImageIcon("X:/Desktop/Lounge.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3041,15 +2834,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt.dispose();						//closes JFrame
 					
-					mapImage = new JFrame("Map");
-					mapIcon = new ImageIcon("X:/Desktop/Hall1.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3115,15 +2900,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt1.dispose();						//closes JFrame
 					
-					mapImage = new JFrame("Map");
-					mapIcon = new ImageIcon("X:/Desktop/Hall1.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
@@ -3191,15 +2968,7 @@ public class Vent_Rooms extends Super_Class{
 				public void actionPerformed(ActionEvent E){
 					madeIt2.dispose();						//closes JFrame
 					
-					mapImage = new JFrame("Map");
-					mapIcon = new ImageIcon("X:/Desktop/Hall1.png");
-					map = new JLabel(mapIcon);
-					mapImage.add(map);
-					mapImage.setExtendedState(mapImage.getExtendedState()|JFrame.MAXIMIZED_BOTH );
-					mapImage.setLocationRelativeTo(null);
-					mapImage.setVisible(true); 					
-					mapImage.setDefaultCloseOperation(1);
-					mapImage.setAlwaysOnTop(true);
+					WinLose(howMany);
 								
 				} //end of action event code
 				});	//end of action recognition code
