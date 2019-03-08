@@ -10,6 +10,11 @@ import javax.imageio.ImageIO;
 
 public class Super_Class {
 
+	protected String nationality;
+	protected String font = "Goudy Old Style";
+	protected int fontSize = 16;
+	protected Color black = Color.black;
+	
 	protected SecureRandom NaziNumber = new SecureRandom();
 	int points = 100;
 	public JMenu roomMenu; 
@@ -18,6 +23,7 @@ public class Super_Class {
 	protected JLabel map;
 	protected JFrame madeIt;
 	protected JLabel dropOrDitch;
+	protected JMenuItem rooms[] = new JMenuItem[10];
 	
 	protected Container whatToDo;
 	protected JPanel whatNow;
@@ -32,44 +38,17 @@ public class Super_Class {
 	final JLabel choose;
 	final JPanel controlPanel;
 	
-	JMenuItem lounge = new JMenuItem("1");
-	lounge.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
-	
-	JMenuItem cRoom = new JMenuItem("2");
-	cRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem oRoom = new JMenuItem("3");
-	oRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem dOffice = new JMenuItem("4");
-	dOffice.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem safeRoom = new JMenuItem("5");
-	safeRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem mOffice = new JMenuItem("6");
-	mOffice.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem commRoom = new JMenuItem("7");
-	commRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem checkIn = new JMenuItem("8");
-	checkIn.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem lobby = new JMenuItem("9");
-	lobby.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem potty = new JMenuItem("10");
-	potty.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
-	JMenuItem Hall1 = new JMenuItem("Hallway");
-	Hall1.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
+	//array of rooms
+	for(int r = 0; r < 10; r++) {
+		rooms[r] = new JMenuItem("%s", r);
+		rooms[r].setFont(new Font(font,Font.PLAIN,fontSize));
+	}
+
 	JButton newRoom = new JButton("New Room");
-	newRoom.setFont(new Font("Goudy old style",Font.PLAIN,16));
+	newRoom.setFont(new Font(font,Font.PLAIN,fontSize));
 	
 	JButton jumpDown = new JButton("Drop In");
-	jumpDown.setFont(new Font("Goudy old style",Font.PLAIN,16));
+	jumpDown.setFont(new Font(font,Font.PLAIN,fontSize));
 	
 	}//end Super_Class method
 	
@@ -83,8 +62,7 @@ public class Super_Class {
 		 
 		 switch(outcome)		//switch case: determines if you win or lose
 		 {
-		 case 0:
-			 
+		 case 0: 
 			 points = points + (thereWere*100);		//adds points to the score
 			 
 			 JFrame winner = new JFrame("Win!");
@@ -92,33 +70,31 @@ public class Super_Class {
 			 		+ "prevailed.</font><html>");
 			 
 			 winnerBackground = winner.getContentPane();
-			 winnerBackground.setBackground(Color.black);
+			 winnerBackground.setBackground(black);
 			 
-			 winner.setSize(800,400);						//sets the size of the window
+			 winner.setSize(800,400);			
 			 winner.setLocationRelativeTo(null);
 			 winner.setLayout(new GridLayout(2,1));
 				
-				youWin.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+				youWin.setFont(new Font(font,Font.PLAIN,20)); 
 				
 				whatNow = new JPanel();				
 				whatNow.setLayout(new FlowLayout());
-				whatNow.setBackground(Color.black);
+				whatNow.setBackground(black);
 				
 				JButton winnerOK = new JButton("OK");
-				winnerOK.setFont(new Font("Goudy old style",Font.PLAIN,16));
+				winnerOK.setFont(new Font(font,Font.PLAIN,fontSize));
 				
 				whatNow.add(winnerOK);
 				
 				winner.add(youWin);
 				winner.add(whatNow);
-				winner.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+				winner.setDefaultCloseOperation(2);   				
 				winner.setVisible(true);
 				
 				winnerOK.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent E){
-						winner.dispose();						//closes JFrame
-					
-					
+						winner.dispose();						
 					}//end of action event code			
 				});//end of action recognition code
 			 break;
@@ -130,20 +106,20 @@ public class Super_Class {
 			 JLabel youLose = new JLabel("<html> <font color='silver'> You have been slain.</font><html>");
 			
 			 loserBackground = loser.getContentPane();
-			 loserBackground.setBackground(Color.black);
+			 loserBackground.setBackground(black);
 			 
 			 loser.setSize(800,400);						//sets the size of the window
 			 loser.setLocationRelativeTo(null);
 			 loser.setLayout(new GridLayout(2,1));
 				
-				youLose.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+				youLose.setFont(new Font(font,Font.PLAIN,20)); 
 				
 				whatNow = new JPanel();				
 				whatNow.setLayout(new FlowLayout());
-				whatNow.setBackground(Color.black);
+				whatNow.setBackground(black);
 				
 				JButton loserOK = new JButton("OK");
-				loserOK.setFont(new Font("Goudy old style",Font.PLAIN,16));
+				loserOK.setFont(new Font(font,Font.PLAIN,fontSize));
 				
 				whatNow.add(loserOK);
 				
@@ -158,9 +134,7 @@ public class Super_Class {
 					System.exit(0);
 					
 					}//end of action event code			
-				});//end of action recognition code
-				
-		 
+				});//end of action recognition code	 
 		 }//end switch case	 	
 		
 	}//end method
@@ -172,20 +146,20 @@ public class Super_Class {
 		 		+ "arrogant bastard. </font><html>");
 		 
 		whatToDo = cptObvious.getContentPane();
-		whatToDo.setBackground(Color.black);
+		whatToDo.setBackground(black);
 		 
 		 cptObvious.setSize(800,400);						//sets the size of the window
 		 cptObvious.setLocationRelativeTo(null);
 		 cptObvious.setLayout(new GridLayout(2,1));
 		 
-		 yaLost.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+		 yaLost.setFont(new Font(font,Font.PLAIN,20)); 
 		 
 		 whatNow = new JPanel();				
 			whatNow.setLayout(new FlowLayout());
-			whatNow.setBackground(Color.black);
+			whatNow.setBackground(black);
 			
 			JButton pushOK = new JButton("OK");
-			pushOK.setFont(new Font("Goudy old style",Font.PLAIN,16));
+			pushOK.setFont(new Font(font,Font.PLAIN,fontSize));
 			
 			whatNow.add(pushOK);
 			
@@ -205,8 +179,7 @@ public class Super_Class {
 				});	//end of action recognition code			
 		
 	}//end method
-
-		
+	
 	public void runShot(){
 		
 		 SecureRandom run = new SecureRandom();
@@ -220,20 +193,20 @@ public class Super_Class {
 			 		+ "managed to hop the fence without getting shot.</font><html>");
 			 
 			 winnerBackground = liver.getContentPane();
-			 winnerBackground.setBackground(Color.black);
+			 winnerBackground.setBackground(black);
 			 
 			 liver.setSize(800,400);						//sets the size of the window
 			 liver.setLocationRelativeTo(null);
 			 liver.setLayout(new GridLayout(2,1));
 				
-			 youLive.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+			 youLive.setFont(new Font(font,Font.PLAIN,20)); 
 				
 				whatNow = new JPanel();				
 				whatNow.setLayout(new FlowLayout());
-				whatNow.setBackground(Color.black);
+				whatNow.setBackground(black);
 				
 				JButton winnerOK = new JButton("OK");
-				winnerOK.setFont(new Font("Goudy old style",Font.PLAIN,16));
+				winnerOK.setFont(new Font(font,Font.PLAIN,fontSize));
 				
 				whatNow.add(winnerOK);
 				
@@ -259,20 +232,20 @@ public class Super_Class {
 			 JLabel youDied = new JLabel("<html> <font color='silver'> You stook no chance against the guards in the towers.</font><html>");
 			 
 			 loserBackground = dier.getContentPane();
-			 loserBackground.setBackground(Color.black);
+			 loserBackground.setBackground(black);
 			 
 			 dier.setSize(800,400);						//sets the size of the window
 			 dier.setLocationRelativeTo(null);
 			 dier.setLayout(new GridLayout(2,1));
 				
-			 youDied.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+			 youDied.setFont(new Font(font,Font.PLAIN,20)); 
 				
 				whatNow = new JPanel();				
 				whatNow.setLayout(new FlowLayout());
-				whatNow.setBackground(Color.black);
+				whatNow.setBackground(black);
 				
 				JButton loserOK = new JButton("OK");
-				loserOK.setFont(new Font("Goudy old style",Font.PLAIN,16));
+				loserOK.setFont(new Font(font,Font.PLAIN,fontSize));
 				
 				whatNow.add(loserOK);
 				
@@ -283,18 +256,13 @@ public class Super_Class {
 				
 				loserOK.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent E){
-						dier.dispose();						//closes JFrame
+						dier.dispose();						
 					
 						Final_Game youLost = new Final_Game();
 						youLost.loseMethod(points);
 						
 					}//end of action event code			
 				});//end of action recognition code
-				
-		 
-		 }//end switch case
-
-		
-	}//end method
-
-} // end class
+		 }//end switch case		
+	}
+} 

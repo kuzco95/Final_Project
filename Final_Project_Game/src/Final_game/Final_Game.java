@@ -11,11 +11,6 @@ import java.util.*;
 import javax.imageio.ImageIO;
 
 public class Final_Game extends Super_Class {
-	protected String nationality;
-	protected String font = "Goudy Old Style";
-	protected int fontSize = 16;
-	protected Color black = Color.black;
-
 	protected JLabel titleImage;
 	protected ImageIcon titleIcon;  
 	private JLabel contentLabel;
