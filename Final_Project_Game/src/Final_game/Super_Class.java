@@ -1,5 +1,4 @@
 package Final_game;
-
 import javax.swing.*;						//.* indicates everything in that package is imported
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -9,16 +8,11 @@ import java.io.*;
 import java.util.*;
 import javax.imageio.ImageIO;
 
-
-
 public class Super_Class {
 
 	protected SecureRandom NaziNumber = new SecureRandom();
-	
 	int points = 100;
-	
 	public JMenu roomMenu; 
-	
 	protected JFrame mapImage;
 	protected ImageIcon mapIcon;
 	protected JLabel map;
@@ -80,16 +74,11 @@ public class Super_Class {
 	}//end Super_Class method
 	
 	public void WinLose(int thereWere){
-		 
-		
-		
 		 SecureRandom winLose = new SecureRandom();
 		 int outcome = winLose.nextInt(1);
 		 
 		 if (thereWere >= 4){
-			 
 			  fourPlus();			//calls fourPlus method when there are more than four Nazis	  
-			  
 		 }//end if statement	 
 		 
 		 switch(outcome)		//switch case: determines if you win or lose

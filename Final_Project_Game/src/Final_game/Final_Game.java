@@ -11,71 +11,63 @@ import java.util.*;
 import javax.imageio.ImageIO;
 
 public class Final_Game extends Super_Class {
-	
-	private JFrame introContext = new JFrame("Year: 1946");	
-	private JLabel USAcontentLabel = new JLabel("<html> <font color='silver'> Welcome, you have awakened in "
-			+ "a cold cell with a map on the ground and no recollection as to how you got there."
-			+ "The last thing you remember is flying a bomber over Berlin with your fellow American buddies. "
-			+ "Take a look at the map in your cell.</font><html>",JLabel.CENTER);
-	
-	private JLabel GBcontentLabel = new JLabel("<html> <font color='silver'> Welcome, you have awakened in "
-			+ "a cold cell with a map on the ground and no recollection as to how you got there."
-			+ "The last thing you remember is flying a bomber over Berlin with your fellow British buddies. "
-			+ "Take a look at the map in your cell.</font><html>",JLabel.CENTER);
-	
-	private JLabel RussiancontentLabel = new JLabel("<html> <font color='silver'> Welcome, you have awakened in "
-			+ "a cold cell with a map on the ground and no recollection as to how you got there."
-			+ "The last thing you remember is flying a bomber over Berlin with your fellow Russian buddies. "
-			+ "Take a look at the map in your cell.</font><html>",JLabel.CENTER);
-	
+	protected String nationality;
+	protected String font = "Goudy Old Style";
+	protected int fontSize = 16;
+	protected Color black = Color.black;
+
 	protected JLabel titleImage;
 	protected ImageIcon titleIcon;  
-	
+	private JLabel contentLabel;
 	public JFrame gameMap = new JFrame("Map"); 
 	protected Container Context;
 	private JPanel controlPanel;
 	
 	protected JFrame asylumRevelation = new JFrame("Enlightenment");
 	protected JLabel RevelationContent = new JLabel("<html> <font color='silver'> After looking out "
-			+ "the small window in the door, you soon realize that you are, in fact, locked inside "
-			+ "a Nazi facility. Attract the guard's attention and get out quickly. </font><html>");
+			+ "the small window in the door, you soon realize that you're locked inside a Nazi "
+			+ "facility. Attract the guard's attention and get out quickly. </font><html>");
 	
 	protected Container learn;
-	protected JPanel clickOK; ////////////////////////
-	
+	protected JPanel clickOK; 
 	
 	protected JFrame homeLandFrame = new JFrame("Enlightenment");
 	protected JLabel homeLandLabel = new JLabel("<html> <font color='silver'> Select your country of origin. </font><html>");
 	
 	protected Container homeContainer;
 	private JPanel homePanel;
-	
-	
+
 	protected String comeFrom;
 	
-	public void motherLand(){
-		
+	protected String intro(String nat) {
+		String introMessage = "<html> <font color='silver'> Welcome, you have awakened in "
+			+ "a cold cell with a map on the ground and no recollection as to how you got there."
+			+ "The last thing you remember is flying a bomber over Berlin with your fellow " + nat + " buddies. "
+			+ "Take a look at the map in your cell.</font><html>";
+		System.out.println("line 60 " + nationality);
+		return introMessage;
+	}
+
+	public void motherLand(){	
 	homeContainer = homeLandFrame.getContentPane();
-	homeContainer.setBackground(Color.black);
-	
+	homeContainer.setBackground(black);
 	homeLandFrame.setSize(800,400);						//sets the size of the window
 	homeLandFrame.setLocationRelativeTo(null);
-	homeLandFrame.setLayout(new GridLayout(2,1));
-		
-	homeLandLabel.setFont(new Font("Goudy old style",Font.PLAIN,20));
+	homeLandFrame.setLayout(new GridLayout(2,1));	
+	homeLandLabel.setFont(new Font(font,Font.PLAIN,20));
 	
 	homePanel = new JPanel();					
 	homePanel.setLayout(new FlowLayout());
-	homePanel.setBackground(Color.black);
+	homePanel.setBackground(black);
 	
 	JButton Merica = new JButton("USA");						//USA button
-	Merica.setFont(new Font("Goudy old style",Font.PLAIN,16));
-	
+	Merica.setFont(new Font(font,Font.PLAIN,fontSize));
+
 	JButton UK = new JButton("Great Britain");					//England button
-	UK.setFont(new Font("Goudy old style",Font.PLAIN,16));
+	UK.setFont(new Font(font,Font.PLAIN,fontSize));
 
 	JButton Russia = new JButton("Russia");						//Russia button
-	Russia.setFont(new Font("Goudy old style",Font.PLAIN,16));
+	Russia.setFont(new Font(font,Font.PLAIN,fontSize));
 	
 	homePanel.add(Merica);		
 	homePanel.add(UK);
@@ -87,188 +79,100 @@ public class Final_Game extends Super_Class {
 	homeLandFrame.setVisible(true);
 	
 	comeFrom = "null";
-	
+
 	Merica.addActionListener(new ActionListener(){			//creates ActionListener for OK button
 		public void actionPerformed(ActionEvent E){
 			homeLandFrame.dispose();						//closes JFrame	
 			comeFrom = "USA";
+			nationality = "American";
+			System.out.println("line 102 " + nationality);
 			start();
-		} //end of action event code
-		});	//end of action recognition code
+		}
+		});	
 	
-	UK.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+	UK.addActionListener(new ActionListener(){		
 		public void actionPerformed(ActionEvent E){
-			homeLandFrame.dispose();						//closes JFrame	
+			homeLandFrame.dispose();				
 			comeFrom = "Great Britain";
+			nationality = "British";
+			System.out.println("line 112 " + nationality);
 			start();
-		} //end of action event code
-		});	//end of action recognition code
+		} 
+		});	
 	
-	Russia.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+	Russia.addActionListener(new ActionListener(){		
 		public void actionPerformed(ActionEvent E){
-			homeLandFrame.dispose();						//closes JFrame	
+			homeLandFrame.dispose();						
 			comeFrom = "Russia";
+			nationality = "Russian";
+			System.out.println("line 122 " + nationality);
 			start();
-		} //end of action event code
-		});	//end of action recognition code
+		} 
+		});	
 	}
 	
+	private JFrame introContext = new JFrame("Year: 1946");	
 	protected void start(){
-	switch(comeFrom)
-	{
-	case "USA":
+		contentLabel = new JLabel(intro(nationality),JLabel.CENTER);
+		System.out.println("line 131 " + nationality);
 		
+		//set window preferences (size, font, background)
 		Context = introContext.getContentPane();
-		Context.setBackground(Color.black);	
-		
-		introContext.setSize(800,400);						//sets the size of the window
+		Context.setBackground(black);	
+		introContext.setSize(800,400);					
 		introContext.setLocationRelativeTo(null);
 		introContext.setLayout(new GridLayout(2,1));
 		
-		USAcontentLabel.setFont(new Font("Goudy old style",Font.PLAIN,20)); //declares font and size
-
 		controlPanel = new JPanel();					
 		controlPanel.setLayout(new FlowLayout());
-		controlPanel.setBackground(Color.black);	//makes JPanel background black
+		controlPanel.setBackground(black);
 		
-		JButton viewMap = new JButton("OK");
-		viewMap.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
-		
-		controlPanel.add(viewMap);									//OK button
-		
-		introContext.add(USAcontentLabel);         				  	//JFrame
+		contentLabel.setFont(new Font(font,Font.PLAIN,20)); //declares font and size
+		introContext.add(contentLabel);         			//JFrame
 		introContext.add(controlPanel);
-		introContext.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
-		introContext.setVisible(true);	
+		introContext.setDefaultCloseOperation(2);   			
+		introContext.setVisible(true);
 		
-		viewMap.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+		JButton okButton = new JButton("OK");
+		okButton.setFont(new Font(font,Font.PLAIN,fontSize));
+		
+		controlPanel.add(okButton);									
+		okButton.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent E){
-				//introContext.dispose();						//closes JFrame
-				
-				//System.out.println("The thing will close.");
-				
 				Pre_Pick();
 				
-			} //end of action event code
-			});	//end of action recognition code
-		break;
-	case "Great Britain":
-		Context = introContext.getContentPane();
-		Context.setBackground(Color.black);	
-		
-		introContext.setSize(800,400);						//sets the size of the window
-		introContext.setLocationRelativeTo(null);
-		introContext.setLayout(new GridLayout(2,1));
-		
-		GBcontentLabel.setFont(new Font("Goudy old style",Font.PLAIN,20)); //declares font and size
-
-		controlPanel = new JPanel();					
-		controlPanel.setLayout(new FlowLayout());
-		controlPanel.setBackground(Color.black);	//makes JPanel background black
-		
-		JButton GBviewMap = new JButton("OK");
-		GBviewMap.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
-		
-		controlPanel.add(GBviewMap);									//OK button
-		
-		introContext.add(GBcontentLabel);         				  	//JFrame
-		introContext.add(controlPanel);
-		introContext.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
-		introContext.setVisible(true);	
-		
-		GBviewMap.addActionListener(new ActionListener(){		//creates ActionListener for OK button
-			public void actionPerformed(ActionEvent E){
-				//introContext.dispose();						//closes JFrame
-				
-				//System.out.println("The thing will close.");
-				
-				Pre_Pick();
-				
-			} //end of action event code
-			});	//end of action recognition code
-		
-		break;
-	case "Russia":
-		
-		Context = introContext.getContentPane();
-		Context.setBackground(Color.black);	
-		
-		introContext.setSize(800,400);						//sets the size of the window
-		introContext.setLocationRelativeTo(null);
-		introContext.setLayout(new GridLayout(2,1));
-		
-		RussiancontentLabel.setFont(new Font("Goudy old style",Font.PLAIN,20)); //declares font and size
-
-		controlPanel = new JPanel();					
-		controlPanel.setLayout(new FlowLayout());
-		controlPanel.setBackground(Color.black);	//makes JPanel background black
-		
-		JButton RviewMap = new JButton("OK");
-		RviewMap.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
-		
-		controlPanel.add(RviewMap);									//OK button
-		
-		introContext.add(RussiancontentLabel);         				//JFrame
-		introContext.add(controlPanel);
-		introContext.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
-		introContext.setVisible(true);	
-		
-		RviewMap.addActionListener(new ActionListener(){		//creates ActionListener for OK button
-			public void actionPerformed(ActionEvent E){
-				//introContext.dispose();						//closes JFrame
-				
-				//System.out.println("The thing will close.");
-				
-				Pre_Pick();
-				
-				//winMethod(1200);
-				
-			} //end of action event code
-			});	//end of action recognition code
-		break;
-	
-	}//end switch case
-		
+			} 
+			});	
 	}//end motherLand method
 	
 	public void Pre_Pick(){
 		introContext.dispose();						//closes JFrame
 		gameMap.setAlwaysOnTop(true);
 		
-		titleIcon = new ImageIcon("X:/Desktop/StartingGameMap.png");				//inserts map
+		titleIcon = new ImageIcon("/Final_Project_Game/src/Final_game/StartingGameMap.png");	//inserts map
 		titleImage = new JLabel(titleIcon);
 		gameMap.add(titleImage);
 		//titleImage.setVisible(true);
-		gameMap.setExtendedState( gameMap.getExtendedState()|JFrame.MAXIMIZED_BOTH );	//sets the size of the window code from stackoverflow.com
+		gameMap.setExtendedState(gameMap.getExtendedState()|JFrame.MAXIMIZED_BOTH );	//sets the size of the window code from stackoverflow.com
 		gameMap.setLocationRelativeTo(null);
 		gameMap.setVisible(true); 					//makes game map visible
 		gameMap.setDefaultCloseOperation(1);   				//closes program when you close window; code from Cordell
-		//gameMap.repaint();
-		 
-//		try{Thread.sleep(4000);}					//displays for 4.0 seconds							
-//		catch(Exception e){};
-//	
-//		
-//		gameMap.dispose();
-//		gameMap.setVisible(false);
-		
 		
 		learn = asylumRevelation.getContentPane();
-		learn.setBackground(Color.black);
-		
-		
+		learn.setBackground(black);
+			
 		asylumRevelation.setSize(800,400);						//sets the size of the window
 		asylumRevelation.setLocationRelativeTo(null);
 		asylumRevelation.setLayout(new GridLayout(2,1));
 		
-		RevelationContent.setFont(new Font("Goudy old style",Font.PLAIN,20)); //declares font and size
+		RevelationContent.setFont(new Font(font,Font.PLAIN,20)); //declares font and size
 		
 		clickOK = new JPanel();					
 		clickOK.setLayout(new FlowLayout());
-		clickOK.setBackground(Color.black);							//makes JPanel background black
+		clickOK.setBackground(black);							//makes JPanel background black
 		
 		JButton gotIt = new JButton("OK");
-		gotIt.setFont(new Font("Goudy old style",Font.PLAIN,16));	//alters the font of button
+		gotIt.setFont(new Font(font,Font.PLAIN,fontSize));	//alters the font of button
 		//gotIt.setPreferredSize(new Dimension(10,10));				//stackoverflow
 		
 		clickOK.add(gotIt);											//OK button
@@ -277,7 +181,6 @@ public class Final_Game extends Super_Class {
 		asylumRevelation.add(clickOK);
 		asylumRevelation.setDefaultCloseOperation(2);
 		
-
 		asylumRevelation.setVisible(true);
 		
 		Vent_Rooms transfer = new Vent_Rooms();
@@ -323,37 +226,33 @@ public class Final_Game extends Super_Class {
 					+ "Your final score was" + total + "." +winPoints[2]+"</font><html>");
 		}//end if statement
 		
-		
 		whatToDo = iWin.getContentPane();
-		whatToDo.setBackground(Color.black);
+		whatToDo.setBackground(black);
 		
 		iWin.setSize(800,400);						//sets the size of the window
 		iWin.setLocationRelativeTo(null);
 		iWin.setLayout(new GridLayout(2,1));
 		
-		winLabel.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+		winLabel.setFont(new Font(font,Font.PLAIN,20)); 
 		
 		whatNow = new JPanel();				
 		whatNow.setLayout(new FlowLayout());
-		whatNow.setBackground(Color.black);
+		whatNow.setBackground(black);
 		
 		JButton okWin = new JButton("OK");
-		okWin.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		okWin.setFont(new Font(font,Font.PLAIN,fontSize));
 		
 		whatNow.add(okWin);
-		
-		
+			
 		iWin.add(winLabel);         				  		//JFrame
 		iWin.add(whatNow);
-		iWin.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+		iWin.setDefaultCloseOperation(2);   			
 		iWin.setVisible(true);
 		
-		okWin.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+		okWin.addActionListener(new ActionListener(){	
 			public void actionPerformed(ActionEvent E){
-				iWin.dispose();								//closes JFrame
-				
+				iWin.dispose();								
 				System.exit(0);								//ends program
-				
 			} //end of action event code
 			});	//end of action recognition code
 		
@@ -388,44 +287,37 @@ public class Final_Game extends Super_Class {
 			
 				loseLabel = new JLabel("<html> <font color='silver'> You lost. "
 				+ "Your final score was " + total + "." +losePoints[2]+"</font><html>");
-			}//end if statement
-		
+			}//end if statement		
 		
 		whatToDo = iLose.getContentPane();
-		whatToDo.setBackground(Color.black);
+		whatToDo.setBackground(black);
 		
 		iLose.setSize(800,400);						//sets the size of the window
 		iLose.setLocationRelativeTo(null);
 		iLose.setLayout(new GridLayout(2,1));
 		
-		loseLabel.setFont(new Font("Goudy old style",Font.PLAIN,20)); 
+		loseLabel.setFont(new Font(font,Font.PLAIN,20)); 
 		
 		whatNow = new JPanel();				
 		whatNow.setLayout(new FlowLayout());
-		whatNow.setBackground(Color.black);
+		whatNow.setBackground(black);
 		
 		JButton okLose = new JButton("OK");
-		okLose.setFont(new Font("Goudy old style",Font.PLAIN,16));
+		okLose.setFont(new Font(font,Font.PLAIN,fontSize));
 		
 		whatNow.add(okLose);
 		
-		
-		iLose.add(loseLabel);         				  		//JFrame
+		iLose.add(loseLabel);         				  		
 		iLose.add(whatNow);
-		iLose.setDefaultCloseOperation(2);   				//closes program when you close window; code from Cordell
+		iLose.setDefaultCloseOperation(2);   				
 		iLose.setVisible(true);
 		
-		okLose.addActionListener(new ActionListener(){		//creates ActionListener for OK button
+		okLose.addActionListener(new ActionListener(){		
 			public void actionPerformed(ActionEvent E){
-				iLose.dispose();							//closes JFrame
-				
-				
-				System.exit(0);								//ends program
-				
-			} //end of action event code
-		});	//end of action recognition code
+				iLose.dispose();							
+				System.exit(0);											
+			} 
+		});	
 		
-	}//end loseMethod
-
-	
-		}//end class
+	}//end loseMethod	
+}

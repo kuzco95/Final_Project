@@ -1,0 +1,4 @@
+<html> <font color='silver'> Welcome, you have awakened in "
+			+ "a cold cell with a map on the ground and no recollection as to how you got there."
+			+ "The last thing you remember is flying a bomber over Berlin with your fellow American buddies. "
+			+ "Take a look at the map in your cell.</font><html>
